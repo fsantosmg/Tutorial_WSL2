@@ -1,0 +1,10 @@
+#configurando modo de aceleração indireta:
+echo 'export LIBGL_ALWAYS_INDIRECT=1' >> .bashrc
+#seta variavel com versão do wsl
+echo "export WSL_VERSION=$(wsl.exe -l -v | grep -a '[*]' | sed 's/[^0-9]*//g')" >> .bashrc
+#seta variavel com ip do host wsl
+echo "export WSL_HOST=$(tail -1 /etc/resolv.conf | cut -d' ' -f2)" >> .bashrc
+#seta endereço de ip do host
+echo 'export DISPLAY=$WSL_HOST:0' >> .bashrc
+#instalar o dbus-x11 para rodar programas gráficos
+sudo apt install dbus-x11 vim-gtk3 tilix 
